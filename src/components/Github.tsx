@@ -74,9 +74,11 @@ export default async function Github() {
                     header={item.header}
                     // icon={item.icon}
                     className={
-                        i === 0 ? "md:col-span-2" :
-                            i === 1 ? "md:row-span-2" :
-                                i === 2 ? "md:row-span-3 md:col-span-2" : ''
+                        i === 0 ? "md:col-span-2 dark:bg-zinc-900" :
+                            i === 1 ? "md:row-span-2 dark:border-white/[0.7]" :
+                                i === 2 ? "md:row-span-3 md:col-span-2 dark:border-white/[0.7]" :
+                                    i === 3 ? "dark:border-white/[0.7]" :
+                                        i === 4 ? "dark:bg-zinc-900" : ''
                     }
                 />
             ))}
