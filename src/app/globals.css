@@ -31,3 +31,11 @@ body {
     text-wrap: balance;
   }
 }
+
+:root {
+  --color-typescript: #007acc;
+  --color-javascript: #f7df1e;
+  --color-html: #e34f26;
+  --color-css: #563d7c;
+  --color-vue: #41b883;
+}
