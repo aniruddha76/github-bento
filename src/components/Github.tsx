@@ -47,7 +47,7 @@ export default async function Github() {
         },
         {
             title: "About Me",
-            description: "Hello! I'm Aniruddha Thakur, a passionate web developer and designer who thrives on creating stunning and intuitive frontend designs. My journey in the digital world began with a fascination for how design and code can come together to create seamless user experiences. As a web developer, I meticulously craft responsive and efficient code that brings my designs to life. My goal is to make every website not only look fantastic but also function flawlessly.",
+            description: "Hello! I'm Aniruddha Thakur, a passionate web developer and designer who thrives on creating stunning and intuitive frontend designs. My journey in the digital world began with a fascination for how design and code can come together to create seamless user experiences.",
             // icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
         },
         {
