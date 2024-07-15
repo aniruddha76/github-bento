@@ -1,14 +1,21 @@
 "use client"
 import { Bar, BarChart, XAxis, YAxis } from "recharts"
-
 import {
-  ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
 
-const chartConfig = {
+// Define the ChartConfig type
+interface ChartConfig {
+  [key: string]: {
+    label: string
+    color?: string
+  }
+}
+
+// Define the chartConfig object
+const chartConfig: ChartConfig = {
   visitors: {
     label: "Visitors",
   },
@@ -36,46 +43,48 @@ const chartConfig = {
     label: "Other",
     color: "#aaaaaa", // Default color for others
   },
-} satisfies ChartConfig
+}
 
-export function Component(props: any) {
+// Define the Props interface
+interface Props {
+  languages: Record<string, number>
+}
 
+export function Component(props: Props) {
   const chartData = Object.keys(props.languages).map((key) => {
-    const languageKey = key.toLowerCase();
+    const languageKey = key.toLowerCase() as keyof typeof chartConfig
     return {
       language: key,
       count: props.languages[key],
       fill: chartConfig[languageKey]?.color || "var(--chart-other)"
-    };
-  });
+    }
+  })
 
   return (
-        <ChartContainer config={chartConfig}>
-          <BarChart
-            accessibilityLayer
-            data={chartData}
-            layout="vertical"
-            margin={{
-              left: 0,
-            }}
-          >
-            <YAxis
-              dataKey="language"
-              type="category"
-              tickLine={false}
-              tickMargin={10}
-              axisLine={false}
-              tickFormatter={(value) =>
-                chartConfig[value.toLowerCase()]?.label || value
-              }
-            />
-            <XAxis dataKey="count" type="number" hide />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
-            <Bar dataKey="count" layout="vertical" radius={5} />
-          </BarChart>
-        </ChartContainer>
+    <ChartContainer config={chartConfig}>
+      <BarChart
+        accessibilityLayer
+        data={chartData}
+        layout="vertical"
+        margin={{ left: 0 }}
+      >
+        <YAxis
+          dataKey="language"
+          type="category"
+          tickLine={false}
+          tickMargin={10}
+          axisLine={false}
+          tickFormatter={(value) =>
+            chartConfig[value.toLowerCase() as keyof typeof chartConfig]?.label || value
+          }
+        />
+        <XAxis dataKey="count" type="number" hide />
+        <ChartTooltip
+          cursor={false}
+          content={<ChartTooltipContent hideLabel />}
+        />
+        <Bar dataKey="count" layout="vertical" radius={5} />
+      </BarChart>
+    </ChartContainer>
   )
 }
