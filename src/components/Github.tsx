@@ -27,10 +27,10 @@ export default async function Github() {
         />
     );
 
-    const countOccurrences = {};
+    const countOccurrences: {[key: string]: number} = {};
 
     // Iterate through the array
-    languages.forEach((element) => {
+    languages.forEach((element: string) => {
         // If the element is already in the object, increment its count
         if (countOccurrences[element]) {
             countOccurrences[element]++;
