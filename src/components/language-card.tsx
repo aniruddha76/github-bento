@@ -5,6 +5,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
+import { Plus_Jakarta_Sans } from "next/font/google"
 
 // Define the ChartConfig type
 interface ChartConfig {
@@ -39,9 +40,33 @@ const chartConfig: ChartConfig = {
     label: "Vue",
     color: "#41b883", // Vue color
   },
+  python: {
+    label: "Python",
+    color: "#3572A5", // Vue color
+  },
+  java: {
+    label: "Java",
+    color: "#b07219", // Vue color
+  },
+  c: {
+    label: "C",
+    color: "#555555", // Vue color
+  },
+  'c++': {
+    label: "C++",
+    color: "#f34b7d", // Vue color
+  },
+  "jupyter notebook": {
+    label: "Jupyter Notebook",
+    color: "#DA5B0B", // Vue color
+  },
+  dart: {
+    label: "Dart",
+    color: "#DA5B0B", // Vue color
+  },
   other: {
     label: "Other",
-    color: "#aaaaaa", // Default color for others
+    color: "#05b9e6", // Default color for others
   },
 }
 
